@@ -18,7 +18,7 @@ public class Product {
 	private float price;
 	private int quantity;
 	private ProductType producttype;
-	private long count = 0;
+	private static long count = 0;
 	
 	public long getId() {
 		return id;

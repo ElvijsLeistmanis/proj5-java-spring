@@ -5,6 +5,10 @@ import java.util.Random;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import lv.venta.model.Product;
+import lv.venta.model.ProductType;
+
 import org.springframework.ui.Model;
 
 @Controller
@@ -24,5 +28,13 @@ public class SimpleController {
 		String data = "@Elvijs " + rand.nextInt(1, 1000);
 		model.addAttribute("package", data);
 		return "show-data-page";
+	}
+	
+	@GetMapping("/product")
+	public String getProductInPage(Model model) {
+		System.out.println("Product controller called");
+		Product product = new Product("Banana", 3.5f, 25, ProductType.fruit);
+		model.addAttribute("package", product);
+		return "show-product-page";
 	}
 }
