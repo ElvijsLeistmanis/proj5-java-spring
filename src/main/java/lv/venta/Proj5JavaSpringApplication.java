@@ -34,5 +34,4 @@ public class Proj5JavaSpringApplication {
 			}
 		};
 	}
-
 }
