@@ -12,6 +12,9 @@ import lv.venta.model.Product;
 import lv.venta.model.ProductType;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 @RequestMapping("/simple")
@@ -47,4 +50,17 @@ public class SimpleController {
 		model.addAttribute("package", productList);
 		return "show-product-list-page";
 	}
+	
+	@GetMapping("/add")
+	public String getAddNewProduct(Model model) {
+		model.addAttribute("product", new Product());
+		return "add-new-product-page";
+	}
+	
+	@PostMapping("/add")
+	public String postAddNewProduct(Product product) {
+		System.out.println(product);
+		return "redirect:/simple/multiProduct";
+	}
+	
 }

@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<h1> Please enter product information </h1>
+		<form method="post" th:object="${product}" th:action="@{/simple/add}">
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><input type=text th:field="*{name}"></input></td>
+			</tr>
+			<tr>
+				<td>Price:</td>
+				<td><input type=text th:field="*{price}"></input></td>
+			</tr>
+			<tr>
+				<td>Quantity:</td>
+				<td><input type=text th:field="*{quantity}"></input></td>
+			</tr>
+			<tr>
+				<td>Product Type:</td>
+				<td><input type=text th:field="*{producttype}"></input></td>
+			</tr>
+		</table>
+		<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>
