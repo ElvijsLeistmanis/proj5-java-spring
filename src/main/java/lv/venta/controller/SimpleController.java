@@ -40,8 +40,8 @@ public class SimpleController {
 	@GetMapping("/multiProduct")
 	public String getMultipleProduct(Model model) {
 		Product product1 = new Product("Banana", 3.5f, 25, ProductType.fruit);
-		Product product2 = new Product("Apple", 2.5f, 25, ProductType.fruit);
-		Product product3 = new Product("Kiwi", 5.5f, 25, ProductType.fruit);
+		Product product2 = new Product("Apple", 2.5f, 15, ProductType.fruit);
+		Product product3 = new Product("Kiwi", 5.5f, 5, ProductType.fruit);
 		ArrayList<Product> productList = new ArrayList<Product>();
 		productList.addAll(Arrays.asList(product1, product2, product3));
 		model.addAttribute("package", productList);

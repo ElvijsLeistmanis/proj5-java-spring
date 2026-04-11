@@ -1,12 +1,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<body>
 		<h1>Products</h1>
-		<tr th:each="student: ${students}">
-		<td th:text="${package.id}"></td>
-		<td th:text="${package.name}"></td>
-		<td th:text="${package.price}"></td>
-		<td th:text="${package.quantity}"></td>
-		<td th:text="${package.producttype}"></td>
-		</tr>
+		<table>
+			<tr th:each="product: ${package}">
+				<td th:text="${product.id}"></td>
+				<td th:text="${product.name}"></td>
+				<td th:text="${product.price}"></td>
+				<td th:text="${product.quantity}"></td>
+				<td th:text="${product.producttype}"></td>
+			</tr>
+		</table>
 	</body>
 </html>
