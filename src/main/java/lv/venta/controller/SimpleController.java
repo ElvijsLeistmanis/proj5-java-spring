@@ -14,6 +14,8 @@ import lv.venta.model.ProductType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
@@ -59,6 +61,18 @@ public class SimpleController {
 	
 	@PostMapping("/add")
 	public String postAddNewProduct(Product product) {
+		System.out.println(product);
+		return "redirect:/simple/multiProduct";
+	}
+	@GetMapping("/update")
+	public String getUpdateProduct(Model model) {
+		Product product = new Product("Banana", 0.99f, 30, ProductType.fruit);
+		model.addAttribute(product);
+		return "update-product-page";
+	}
+	
+	@PostMapping("/update")
+	public String postUpdateProduct(Product product) {
 		System.out.println(product);
 		return "redirect:/simple/multiProduct";
 	}

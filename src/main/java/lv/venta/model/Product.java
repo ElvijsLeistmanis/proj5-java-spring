@@ -1,80 +1,47 @@
 package lv.venta.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-/*
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-*/
+@Table(name="ProductTable")
+@Entity
 public class Product {
 	
+	@Setter(value = AccessLevel.NONE)
+	@Column(name="Id")
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String name;
-	private float price;
-	private int quantity;
-	private ProductType producttype;
-	private static long count = 0;
 	
-	public long getId() {
-		return id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public float getPrice() {
-		return price;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public ProductType getProducttype() {
-		return producttype;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public void setProducttype(ProductType producttype) {
-		this.producttype = producttype;
-	}
-
-	public Product() {
-		setName("Product");
-		setPrice(0);
-		setQuantity(0);
-		setProducttype(ProductType.unknown);
-		id = count++;
-	}
+	@Column(name="Name")
+	private String name;
+	
+	@Column(name="Price")
+	private float price;
+	
+	@Column(name="Quantity")
+	private int quantity;
+	
+	@Column(name="ProductType")
+	private ProductType producttype;
 	
 	public Product(String name, float price, int quantity, ProductType producttype) {
 		setName(name);
 		setPrice(price);
 		setQuantity(quantity);
 		setProducttype(producttype);
-		id = count++;
-	}
-
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity + ", producttype="
-				+ producttype + "]";
 	}
 }
