@@ -15,8 +15,13 @@ public class ProductCRUDServiceImpl implements IProductCRUDService{
 	private IProductRepo prodRepo;
 	
 	@Override
-	public void createProduct(String name, float price, int description, ProductType producttype) throws Exception {
-		// TODO Auto-generated method stub
+	public void createProduct(String name, float price, int quantity, ProductType producttype) throws Exception {
+		if(name == null || !name.matches("[A-Z]{1}[a-z ]{2,30}")
+				|| price < 0 || price > 1000 
+				|| quantity < 0 || quantity > 1000 
+				|| producttype == null) throw new Exception ("Invalid input parameters.");
+		
+		if (prodRepo.existsByNameAndPriceAndProducttype(name, price, producttype)) throw new Exception("Such product already exists.");
 		
 	}
 
