@@ -53,8 +53,15 @@
     <scope>compile</scope>
 </dependency> 
 
-<!--Ja velas darboties ar H2 datubazi-->
-		<!-- 
+<!-- Source: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+    <version>4.1.0-RC1</version>
+    <scope>compile</scope>
+</dependency>
+
+
 		<dependency>
 <groupId>com.h2database</groupId>
 <artifactId>h2</artifactId>
@@ -66,7 +73,6 @@
 <artifactId>spring-boot-h2console</artifactId>
 </dependency>  
 
--->
 <!-- Source: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation -->
 <dependency>
     <groupId>org.springframework.boot</groupId>
